@@ -1,5 +1,8 @@
 # Parallel_WaveGAN
 
+**link:**
+https://github.com/mahotani/Parallel_WaveGAN/issues/1
+
 ## 1 INTRODUCTION
 
 合成音声生成の分野はtext-to-speechなどの登場により生成される音の質が向上しました。  
@@ -46,3 +49,33 @@
 
 ### 2.2 Multi-resolution STFT auxiliary loss
 
+安定性と効率を上げるために、多重解像度解像度STFT損失を提案する。  
+以下の図は多重解像度STFT損失と敵対的なトレーニング法を組み合わせたフレームワークのイメージ図。  
+
+<img width="625" alt="distillation" src="https://user-images.githubusercontent.com/39772824/87129514-6ad9d880-c2cc-11ea-9cd9-58734f8cecc6.png"> 
+
+単一のSTFT損失は次のように定義する。
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_s(G)&space;=&space;E_{x&space;\sim&space;p(x),&space;x&space;\sim&space;pdata}&space;\[&space;L_{sc}(x,&space;\hat{x})&space;&plus;&space;L_{mag}(x,&space;\hat{x})\]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_s(G)&space;=&space;E_{x&space;\sim&space;p(x),&space;x&space;\sim&space;pdata}&space;\[&space;L_{sc}(x,&space;\hat{x})&space;&plus;&space;L_{mag}(x,&space;\hat{x})\]" title="L_s(G) = E_{x \sim p(x), x \sim pdata} \[ L_{sc}(x, \hat{x}) + L_{mag}(x, \hat{x})\]" /></a>
+
+ここでの
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;\hat{x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;\hat{x}" title="\hat{x}" /></a>
+は生成されたサンプルを示し、
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_{sc}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_{sc}" title="L_{sc}" /></a>
+と
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_{mag}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_{mag}" title="L_{mag}" /></a>
+はそれぞれスペクトル収束とlog STFT振幅損失を示す。
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_{sc}(x,&space;\hat{x})&space;=&space;\frac{\|&space;|STFT(x)|&space;-&space;|STFT(\hat{x})|&space;\|_F}{\|&space;|STFT(x)|&space;\|_F}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_{sc}(x,&space;\hat{x})&space;=&space;\frac{\|&space;|STFT(x)|&space;-&space;|STFT(\hat{x})|&space;\|_F}{\|&space;|STFT(x)|&space;\|_F}" title="L_{sc}(x, \hat{x}) = \frac{\| |STFT(x)| - |STFT(\hat{x})| \|_F}{\| |STFT(x)| \|_F}" /></a>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_{mag}&space;(x,&space;\hat{x})&space;=&space;\frac{1}{N}&space;\|&space;log&space;|STFT(x)|&space;-&space;log&space;|STFT(\hat{x})|&space;\|_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_{mag}&space;(x,&space;\hat{x})&space;=&space;\frac{1}{N}&space;\|&space;log&space;|STFT(x)|&space;-&space;log&space;|STFT(\hat{x})|&space;\|_1" title="L_{mag} (x, \hat{x}) = \frac{1}{N} \| log |STFT(x)| - log |STFT(\hat{x})| \|_1" /></a>
+
+ここで、
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;\|&space;\cdot&space;\|_F" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;\|&space;\cdot&space;\|_F" title="\| \cdot \|_F" /></a>
+と
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;\|&space;\cdot&space;\|_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;\|&space;\cdot&space;\|_1" title="\| \cdot \|_1" /></a>
+はそれぞれフロベニウスとL1ノルムを示し、
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;|STFT(\cdot)|" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;|STFT(\cdot)|" title="|STFT(\cdot)|" /></a>
+と
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;N" title="N" /></a>
+はそれぞれSTFTの大きさと要素数を示す。
