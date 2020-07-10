@@ -29,4 +29,17 @@
 
 この時、
 <a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;z" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;z" title="z" /></a>
-はwhite noiseを示します。
+はwhite noiseを示す。  
+
+この式の敵対的損失(
+    <a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_{adv}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_{adv}" title="L_{adv}" /></a>
+)を最小限に抑えることにより学習が実行される。  
+
+次の最適化基準を私用して、生成されたサンプルを偽として正しく分類するように、識別器がトレーニングされる。  
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_D&space;(G,D)&space;=&space;E_{x-pdata}&space;\[&space;(1&space;-&space;D(x))^2&space;\]&space;&plus;&space;E_{z&space;\sim&space;N(0,1)}&space;\[&space;D(G(z))^2&space;\]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_D&space;(G,D)&space;=&space;E_{x-pdata}&space;\[&space;(1&space;-&space;D(x))^2&space;\]&space;&plus;&space;E_{z&space;\sim&space;N(0,1)}&space;\[&space;D(G(z))^2&space;\]" title="L_D (G,D) = E_{x-pdata} \[ (1 - D(x))^2 \] + E_{z \sim N(0,1)} \[ D(G(z))^2 \]" /></a>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;x" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;x" title="x" /></a>
+と
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;pdata" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;pdata" title="pdata" /></a>
+はそれぞれターゲット波形とその分布を示す。
