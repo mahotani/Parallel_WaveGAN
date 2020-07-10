@@ -25,7 +25,7 @@
 ジェネレータはWaveNetベース。  
 以下はジェネレータとディスクリミネータの関係式。  
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=L_{adv}&space;(G,D)&space;=&space;E_{z&space;\sim&space;N(0,1)}&space;\[&space;(1&space;-&space;D(G(z)))^2&space;\]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L_{adv}&space;(G,D)&space;=&space;E_{z&space;\sim&space;N(0,1)}&space;\[&space;(1&space;-&space;D(G(z)))^2&space;\]" title="L_{adv} (G,D) = E_{z \sim N(0,1)} \[ (1 - D(G(z)))^2 \]" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_{adv}&space;(G,D)&space;=&space;E_{z&space;\sim&space;N(0,1)}&space;\[&space;(1&space;-&space;D(G(z)))^2&space;\]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_{adv}&space;(G,D)&space;=&space;E_{z&space;\sim&space;N(0,1)}&space;\[&space;(1&space;-&space;D(G(z)))^2&space;\]" title="L_{adv} (G,D) = E_{z \sim N(0,1)} \[ (1 - D(G(z)))^2 \]" /></a>
 
 この時、
 <a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;z" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;z" title="z" /></a>
