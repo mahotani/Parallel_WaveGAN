@@ -79,3 +79,18 @@ https://github.com/mahotani/Parallel_WaveGAN/issues/1
 と
 <a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;N" title="N" /></a>
 はそれぞれSTFTの大きさと要素数を示す。
+
+多重解像度STFT損失は様々な分析パラメータでのSTFT補助損失
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_{aux}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_{aux}" title="L_{aux}" /></a>
+は次のように表される。
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_{aux}(G)&space;=&space;\frac{1}{M}&space;\sum^M_{m=1}&space;L_s^{(m)}(G)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_{aux}(G)&space;=&space;\frac{1}{M}&space;\sum^M_{m=1}&space;L_s^{(m)}(G)" title="L_{aux}(G) = \frac{1}{M} \sum^M_{m=1} L_s^{(m)}(G)" /></a>
+
+ジェネレータの最終的な損失関数は、次の多重解像度STFT損失と敵対的損失の線形結合として定義される。
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;L_G&space;(G,D)&space;=&space;L_{aux}(G)&space;&plus;&space;\lambda_{adv}&space;L_{adv}(G,D)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;L_G&space;(G,D)&space;=&space;L_{aux}(G)&space;&plus;&space;\lambda_{adv}&space;L_{adv}(G,D)" title="L_G (G,D) = L_{aux}(G) + \lambda_{adv} L_{adv}(G,D)" /></a>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;\lambda_{adv}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;\lambda_{adv}" title="\lambda_{adv}" /></a>
+は2つの損失項のバランスを取るハイパーパラメータを示す。
+
+波形ドメイン敵対損失とマルチ解像度STFT損失を共同で最適化することにより、ジェネレータは現実的な音声波形の分布を効率的に学習できる。
