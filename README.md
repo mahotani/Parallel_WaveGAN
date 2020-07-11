@@ -137,7 +137,7 @@ https://github.com/mahotani/Parallel_WaveGAN/issues/1
 
 以下の図は結果  
 
-<img width="625" alt="distillation" src="https://user-images.githubusercontent.com/39772824/87215699-05d9bd80-c374-11ea-903f-9ff1b0701b8f.png"> 
+<img width="300" alt="distillation" src="https://user-images.githubusercontent.com/39772824/87215699-05d9bd80-c374-11ea-903f-9ff1b0701b8f.png"> 
 
 結果から読み取れること  
 
@@ -152,7 +152,7 @@ https://github.com/mahotani/Parallel_WaveGAN/issues/1
 
 以下の表は、トレーニングに要した時間である  
 
-<img width="625" alt="distillation" src="https://user-images.githubusercontent.com/39772824/87215869-94027380-c375-11ea-8923-c333821cea66.png"> 
+<img width="300" alt="distillation" src="https://user-images.githubusercontent.com/39772824/87215869-94027380-c375-11ea-8923-c333821cea66.png"> 
 
 Parallel WaveGANは2.8日でトレーニングできた。  
 これは、自己回帰WaveNetの2.64倍、ClariNetの4.82倍高速だった。  
@@ -169,7 +169,7 @@ TTS(txst-to-speech)フレームワークを組み合わせての実験も行っ�
 
 以下の表が結果。  
 
-<img width="625" alt="distillation" src="https://user-images.githubusercontent.com/39772824/87216178-13914200-c378-11ea-8a54-6f6690abe125.png"> 
+<img width="300" alt="distillation" src="https://user-images.githubusercontent.com/39772824/87216178-13914200-c378-11ea-8a54-6f6690abe125.png"> 
 
 - 知覚品質はほぼ同じだったが、敵対的損失を使用して訓練されたClariNetは敵対的損失を使用せず訓練されたシステムよりも優れたパフォーマンスを示した
 
