@@ -1,7 +1,7 @@
 # Parallel_WaveGAN
 
 **link:**
-https://github.com/mahotani/Parallel_WaveGAN/issues/1
+https://arxiv.org/abs/1910.11480
 
 ## 1 INTRODUCTION
 
